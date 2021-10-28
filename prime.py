@@ -8,7 +8,6 @@ class PrimeFactors:
         self.number = number
         if (isinstance(self.number, int) is False) or (self.number < 1):
             raise ValueError
-        self.primelist = []
         self.factor = 2 # initial candidate for a factor
 
     def __iter__(self):
