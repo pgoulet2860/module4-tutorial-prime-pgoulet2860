@@ -36,3 +36,11 @@ def test_prime_call_with_2():
     """
     prime_fact = PrimeFactors(2)
     assert prime_fact.primelist == [2]
+
+def test_prime_call_with_3():
+    """
+    Assert that when PrimeFactors is called with 3,
+    the list [3] is returned.
+    """
+    prime_fact = PrimeFactors(3)
+    assert prime_fact.primelist == [3]
