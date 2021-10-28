@@ -8,3 +8,5 @@ class PrimeFactors:
         self.number = number
         if (isinstance(self.number, int) is False) or (self.number < 1):
             raise ValueError
+        if self.number == 1:
+            self.primelist = []

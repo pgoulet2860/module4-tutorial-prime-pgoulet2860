@@ -20,3 +20,11 @@ def test_prime_reject_string_input():
     """
     with pytest.raises(ValueError):
         PrimeFactors(str)
+
+def test_prime_call_with_1():
+    """
+    Assert that when PrimeFactors is called with 1,
+    an empty list is returned.
+    """
+    prime_fact = PrimeFactors(1)
+    assert prime_fact.primelist == []
