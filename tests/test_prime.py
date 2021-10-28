@@ -50,3 +50,13 @@ def test_prime_call_with_3():
     for _ in PrimeFactors(3):
         prime_factors.append(_)
     assert prime_factors == [3]
+
+def test_prime_call_with_4():
+    """
+    Assert that when PrimeFactors is called with 4,
+    the list [2, 2] is returned.
+    """
+    prime_factors = []
+    for _ in PrimeFactors(4):
+        prime_factors.append(_)
+    assert prime_factors == [2, 2]
