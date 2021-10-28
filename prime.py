@@ -2,25 +2,26 @@
 prime.py -- Generation of prime factors for a given integer
 """
 class PrimeFactors:
-    """ An iterable """
+    """ Prime Factor implemented as an iterable """
     def __init__(self,number):
         """ Initialize the instance """
         self.number = number
         if (isinstance(self.number, int) is False) or (self.number < 1):
             raise ValueError
+        self.primelist = []
+        self.factor = 2 # initial candidate for a factor
+
+    def __iter__(self):
+        """ Returns the instance object which is an iterator. """
+        return self
+
+    def __next__(self):
+        """ Define the instance object as an iterator."""
         if self.number == 1:
-            self.primelist = []
-        else:
-            self.primelist = []
-            residual = self.number
-            # residual value of the number after division by
-            # prime factors - initially equal to the number itself
-            factor = 2  # initial candidate for a factor
-            while factor <= residual: # continue looking for factors
-                while residual % factor == 0:
-                    # if residual exactly divisible by factor
-                    self.primelist.append(factor)
-                    # add an instance of this factor to the list of prime factors
-                    residual = round(residual/factor)
-                    # reduce the residual value
-                factor += 1 # consider next integer as a factor
+            raise StopIteration
+        if self.factor > self.number: # Condition for end of list
+            raise StopIteration
+        while self.number % self.factor != 0: # if not a multiple of factor
+            self.factor += 1 # increment the factor
+        self.number = round(self.number/self.factor) # reduce number
+        return self.factor # return this factor
